@@ -3,8 +3,17 @@ CREATE DATABASE retail_db;
 USE retail_db;
 
 -- create three tables
+CREATE TABLE stores (
+    id INT(15) auto_increment primary key,
+    Store bigint(20),
+    Type TEXT,
+    Size INT(11)
+);
+
+
 CREATE TABLE features (
-    store bigint(20) PRIMARY KEY,
+    id INT(15) auto_increment primary key,
+    store bigint(20),
     date DATE,
     temperature FLOAT,
     fuel_price FLOAT,
@@ -15,22 +24,19 @@ CREATE TABLE features (
     markdown5 FLOAT,
     CPI FLOAT,
     unemployment FLOAT,
-    is_holiday TINYINT(1)
+    is_holiday tinyint(1)
 );
 
 CREATE TABLE sales (
-    store bigint(20) PRIMARY KEY,
+    id int(30) auto_increment primary key,
+    store bigint(20),
     dept int(3),
     date DATE,
     weekly_sales FLOAT
-
 );
 
-CREATE TABLE stores (
-    Store bigint(20) PRIMARY KEY,
-    Type TEXT,
-    Size INT(11)    
-);
-
-
+-- statements for refereshes of data
+truncate table stores;
+truncate table features;
+truncate table sales;
 
